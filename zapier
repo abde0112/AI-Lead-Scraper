@@ -1,0 +1,21 @@
+I need you to modify the "Send to Webhook" functionality in this Phoenix Leads application to fix CORS errors when sending data to Zapier.
+
+Current issue: The app is trying to send data directly to the Zapier webhook URL, which causes a "Failed to fetch" error due to CORS restrictions.
+
+Solution needed: Use a CORS proxy to bypass the restriction.
+
+Please make these changes:
+
+1. Update the webhook send function to use a CORS proxy URL
+2. Use this CORS proxy: https://corsproxy.io/?
+3. Prepend the CORS proxy URL to the Zapier webhook URL when making the fetch request
+4. The format should be: https://corsproxy.io/?{zapierWebhookURL}
+
+Example:
+- Original URL: https://hooks.zapier.com/hooks/catch/123456/abcdef
+- With proxy: https://corsproxy.io/?https://hooks.zapier.com/hooks/catch/123456/abcdef
+
+5. Keep all other functionality the same (JSON payload structure, error handling, success messages)
+6. Make sure the webhook URL from the input field is properly encoded when added to the proxy URL
+
+Please update the code accordingly.
